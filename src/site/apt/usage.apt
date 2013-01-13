@@ -1,0 +1,47 @@
+ -----
+ NayiDisha Cobertura Plugin
+ -----
+ Pankaj Tandon, Sep 2010 pankajtandon@gmail.com
+ -----
+
+Usage
+
+ The full name invocation is as below
+ 
++---------------+
+mvn com.nayidisha.plugins:maven-ndcobertura-plugin:<<<goal>>>
++---------------+
+
+ If the plugin is minimally configured in your pom.xml then ND Cobertura plugin can be used as below:
+ 
+ For seeing the code coverage for a class called SomeClass:
+ 
++--------+
+ mvn ndcobertura:showCoverage -DclassToTest=SomeClass
++--------+
+
+ For generating cobertura reports for all classes in the current project:
+ 
++--------+
+ mvn ndcobertura:generateReports
++--------+
+
+
+ For recording statistics of code coverage against the time-of-run:
+ 
++--------+
+ mvn ndcobertura:recordCoverage
++--------+
+
+
+ For an html report with a graphical view of progress made over time:
+ 
++--------+
+ mvn ndcobertura:showProgress
++--------+
+
+
+ Check out the full configuration of the plugin for each goal in the configuration section 
+
+ 
+   

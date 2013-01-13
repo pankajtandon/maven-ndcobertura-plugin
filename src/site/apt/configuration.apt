@@ -1,0 +1,142 @@
+ -----
+ NayiDisha Cobertura Plugin
+ -----
+ Pankaj Tandon, Sep 2010, pankajtandon@gmail.com
+ -----
+
+Configuration
+
+  The Cobertura Plugin is meant to be run from the command line so there is no configuration needed in the pom. 
+  If no configuration exists in the pom, then the full plugin name will need to be supplied like so:
+  
++--------------------+
+  mvn com.nayidisha.plugins:maven-ndcobertura-plugin:<goal>
++--------------------+
+  
+  
+  However, a minimal configuration like shown below will enable you to use a shortened prefix for the plugin:
+   
++--------+
+<plugin>
+	<groupId>com.nayidisha.plugins</groupId>
+	<artifactId>maven-ndcobertura-plugin</artifactId>
+	<version>1.0.0</version>
+</plugin>
++---------+
+
+  If the above configuration exists in the pom of the project then the plugin may be invoked by typing:
+  
++----------------+
+  mvn ndcobertura:<goal>
++----------------+
+
+
+  Here is how the full plugin may be configured:
+
++--------+
+     <plugin>
+        <groupId>com.nayidisha.plugins</groupId>
+        <artifactId>maven-ndcobertura-plugin</artifactId>
+		<version>1.0.0</version>
+		
+		<executions>
+          <execution>
+            <id>showCoverage</id>
+	        <configuration>
+	        
+	          <!-- Should this goal be skipped? Default: false -->
+	          <skip>true</skip>
+	          
+	          <!-- The location of the serialized cobertura coverage data file -->
+	          <cobertura.dataFile>${project.build.directory}/cobertura/cobertura.ser</cobertura.dataFile>
+	          
+	        </configuration>          
+            <goals>
+              <goal>showCoverage</goal>
+            </goals>
+          </execution>
+          
+          <execution>
+            <id>generateReports</id>
+	        <configuration>
+	          <!-- Should this goal be skipped? Default: false -->
+	          <skip>true</skip>
+	          
+	          <!-- Amount of maximum memory used by this process -->
+	          <maxmem>64m</maxmem>
+	          
+	          <!-- The parent directory of reportDirectoryName, where the reports are generated -->
+	          <reportPath>${project.build.directory}</reportPath>
+	          
+	          <!-- The parent directory of the reports -->
+	          <reportDirectoryName>${project.artifactId}-cobertura-reports</reportDirectoryName>
+	          
+	          <!-- The location of the source files required for producing the reports -->
+	          <sourceDir>${basedir}/src/main/java</sourceDir>
+	          
+	          <!-- Full path to the serialized data file-->
+	          <cobertura.dataFile>${project.build.directory}/cobertura/cobertura.ser</cobertura.dataFile>
+	          
+	        </configuration>          
+            <goals>
+              <goal>generateReports</goal>
+            </goals>
+          </execution>   
+          
+          
+          <execution>
+          	<id>recordCoverage</id>
+	        <configuration>
+	          <!-- Should this goal be skipped? Default: false -->
+	          <skip>true</skip>
+	          
+	          <!-- The full path of the xml file which will be used to store statistics of the run-->
+	          <storageFileFullPath>C:\temp\coverage.xml</storageFileFullPath>
+	          
+	          <!-- The full path of the directory where progress report is stored. Defaults to ${project.build.directory}/cobertura-progress-report -->
+	          <progressReportLocation>C:\temp\report</progressReportLocation>
+	          
+	          <!-- Name of the progress report html file. Defaults to progressReport.html -->
+	          <progressReportName>xyz.html</progressReportName>	          
+	          	          
+	          <!-- Full path to the serialized data file-->
+	          <cobertura.dataFile>${project.build.directory}/cobertura/cobertura.ser</cobertura.dataFile>
+	          
+	        </configuration>          
+            <goals>
+              <goal>recordCoverage</goal>
+            </goals>
+          </execution> 
+          
+          <execution>
+          	<id>showProgress</id>
+	        <configuration>
+	          <!-- Should this goal be skipped? Default: false -->
+	          <skip>true</skip>
+	          
+	          <!-- The full path of the xml file which will be used to store statistics of the run-->
+	          <storageFileFullPath>C:\temp\coverage.xml</storageFileFullPath>
+	          
+	          <!-- The full path of the directory where progress report is stored. Defaults to ${project.build.directory}/cobertura-progress-report -->
+	          <progressReportLocation>C:\temp\report</progressReportLocation>
+	          
+	          <!-- Name of the progress report html file. Defaults to progressReport.html -->
+	          <progressReportName>xyz.html</progressReportName>	          
+	          	          
+	          <!-- Full path to the serialized data file-->
+	          <cobertura.dataFile>${project.build.directory}/cobertura/cobertura.ser</cobertura.dataFile>
+	          
+	        </configuration>          
+            <goals>
+              <goal>showProgress</goal>
+            </goals>
+          </execution>           
+          
+        </executions>
+      </plugin>    
++--------+
+ 
+
+
+ 
+ 

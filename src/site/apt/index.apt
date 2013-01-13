@@ -1,0 +1,39 @@
+ -----
+ NayiDisha Cobertura Plugin
+ -----
+
+NayiDisha Cobertura Plugin
+
+
+    {{{http://cobertura.sourceforge.net/}Cobertura}} is a code coverage tool that can also be used via the {{{http://mojo.codehaus.org/cobertura-maven-plugin/}cobertura-maven-plugin}}. 
+    
+    The <<ND Cobertura Plugin>> offers four goals that we felt were not covered in the {{{http://mojo.codehaus.org/cobertura-maven-plugin/}cobertura-maven-plugin}}. 
+    While the instrument goal of the cobertura-maven-plugin can be run in the package phase of a build lifecycle, the reporting component of the 
+    same plugin can only be run by issuing a mvn site command. If the project pom is configured to generate several reports (including javadocs and dependencies reports), it can be unacceptably slow for a developer who wants to 
+    see the code coverage immediately following his/her test run in eclipse or similar IDE (or even if the tests are run using maven's surefire plugin).
+    
+    The <<maven-ndcobertura plugin>> offers four goals that allows the developer to check code coverage outside of the site build lifecycle and view progress over time.
+    
+    A related {{{http://nayidisha.com/techblog/easing-into-tdd}blog post}} explains a possible usage scenario.
+    
+   
+
+* Goals Overview
+
+   The ND Cobertura Plugin has four goals:
+
+   * {{{showCoverage-mojo.html}<<showCoverage>>}} can be used to show the line and branch coverage for one class PLUS an overall line coverage rate for the whole codebase.
+   
+   * {{{generateReports-mojo.html}<<generateReports>>}} can be used to generate the cobertura reports in the target directory.
+   
+   * {{{recordCoverage-mojo.html}<<recordCoverage>>}} can be used to record the line and branch coverage on a certain day
+   
+   * {{{showProgress-mojo.html}<<showProgress>>}} can be used to show progress (using a graph) made over time for a set of runs which were recorded using the <<recordCoverage>> goal.
+
+
+* Usage
+
+   Instructions on how to use the ND Cobertura Plugin can be found {{{usage.html}here}}.
+
+
+   
